@@ -4,12 +4,16 @@
 // - METODO PER CODIFICARE IN UNA SOLA FUNZIONE LE INFORMAZIONI IN USCITA SUL MONITOR SERIALE: void fastPrint(char string[], int digit)
 // 
 
-
+//
+//
+//
+//
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // INIZIO FILE
 //
+//
 // NAME: 
-// VERSIONING: // -- 
+// VERSIONING: // -- v.0.4
 // -- 20/11/2018 V.0.3 - METODO PER LASCIARE ACCESI I LED tot SECONDI SENZA BLOCCARE L'ESECUZIONE DEL PROGRAMMA.
 // -- 19/11/2018 V.0.2 - riorganizzazione e parametrizzazione del codice --> conseguente ottimizzazione. 
 // CREDITS: 
@@ -108,7 +112,7 @@ void loop() {
     Serial.print("Distanza: ");
     Serial.print(distanceValue);
     Serial.println(" cm");       //print distance
-   // DEBUG Serial.println(distanceValue);
+   // DEBUG  Serial.println(distanceValue);
   if ( distanceValue > 0 && distanceValue < DISTANCE_THRESHOLD) {   //check for transits in working range              
     digitalWrite(DISTANCE_LED, HIGH);                                 //active led
     transitCounter++;                                                  //increments by 1 the counter of transits.
