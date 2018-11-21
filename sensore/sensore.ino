@@ -54,7 +54,7 @@ int lightTimer = 0;
 int distanceTimer = 0;
 
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);   // Creates a sonar object for controlling the ultrasonic
-
+void fastPrint(String string, int digit);   //prototipo metodo compatto stampa stringa;
 
 //end
 //------------------------------------------------------------------
@@ -94,8 +94,12 @@ void loop() {
   
   lightValue = analogRead(PHOTORESISTOR_PIN);  
   delayMicroseconds(100); // delay for reading
-  Serial.print("Light sensor = " );
-  Serial.println(lightValue);
+  
+  //Serial.print("Light sensor = " );
+  //Serial.println(lightValue);
+
+  
+  fastPrint("Light sensor = ",lightValue);   //FASTPRINT 
   if (lightValue > LIGHT_THRESHOLD) {
     digitalWrite(PHOTORESISTOR_LED, HIGH);
     lightTimer = millis();
@@ -109,9 +113,10 @@ void loop() {
   //DISTANCE READING
 
   distanceValue = calculateDistance();  // Calls a function for measure distance
-    Serial.print("Distanza: ");
+    /*Serial.print("Distanza: ");
     Serial.print(distanceValue);
-    Serial.println(" cm");       //print distance
+    Serial.println(" cm");   */    //print distance
+    fastPrint("Distanza (cm) = ",distanceValue);
    // DEBUG  Serial.println(distanceValue);
   if ( distanceValue > 0 && distanceValue < DISTANCE_THRESHOLD) {   //check for transits in working range              
     digitalWrite(DISTANCE_LED, HIGH);                                 //active led
@@ -145,7 +150,7 @@ int calculateDistance(){
 }
 
 // EXPERIMENTAL
-void fastPrint(char* string, int digit){
+void fastPrint(String string, int digit){
   Serial.print(string); 
   Serial.println(digit);
   Serial.println();
