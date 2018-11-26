@@ -99,7 +99,11 @@ void loop() {
   //Serial.println(lightValue);
 
   
+<<<<<<< HEAD
  // fastPrint("Light sensor = ",lightValue);   //FASTPRINT 
+=======
+  fastPrint("Light sensor = ",lightValue);   //FASTPRINT 
+>>>>>>> 9dd7e8dbf83fa69c508d84631b6116d92b4999e4
   if (lightValue > LIGHT_THRESHOLD) {
     digitalWrite(PHOTORESISTOR_LED, HIGH);
     lightTimer = millis();
@@ -116,7 +120,11 @@ void loop() {
     /*Serial.print("Distanza: ");
     Serial.print(distanceValue);
     Serial.println(" cm");   */    //print distance
+<<<<<<< HEAD
   // fastPrint("Distanza (cm) = ",distanceValue);
+=======
+    fastPrint("Distanza (cm) = ",distanceValue);
+>>>>>>> 9dd7e8dbf83fa69c508d84631b6116d92b4999e4
    // DEBUG  Serial.println(distanceValue);
   if ( distanceValue > 0 && distanceValue < DISTANCE_THRESHOLD) {   //check for transits in working range              
     digitalWrite(DISTANCE_LED, HIGH);                                 //active led
