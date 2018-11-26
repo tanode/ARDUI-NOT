@@ -1,8 +1,14 @@
+
+
+
+
+
     s1=serial('COM11','Baudrate',9600);
 
     accX=0;
     str='';
     x=0;
+    cazzo;
 
     try
         fopen(s1);
