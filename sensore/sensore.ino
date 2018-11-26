@@ -28,7 +28,7 @@
 //                       GLOBAL DECLARATIONS
 //---------------------------------------------------------------------
 
-#define CLOCK 20   // delay in ms for Loop refresh rate. 
+#define CLOCK 200   // delay in ms for Loop refresh rate. 
 #define LED_TIMER 1000   //led activation in milliseconds
 
 //ULTRASONIC SENSOR
@@ -49,9 +49,9 @@
 // variables and objects
 int transitCounter = 0;
 int lightValue, distanceValue; 
-int timeCounter;
-int lightTimer = 0;
-int distanceTimer = 0;
+unsigned int timeCounter;
+unsigned int lightTimer = 0;
+unsigned int distanceTimer = 0;
 
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);   // Creates a sonar object for controlling the ultrasonic
 void fastPrint(String string, int digit);   //prototipo metodo compatto stampa stringa;
@@ -89,7 +89,9 @@ void setup() {
 
 
 void loop() {
+
   timeCounter = millis();
+ 
   //LIGHT READING
   
   lightValue = analogRead(PHOTORESISTOR_PIN);  
@@ -98,12 +100,8 @@ void loop() {
   //Serial.print("Light sensor = " );
   //Serial.println(lightValue);
 
-  
-<<<<<<< HEAD
  // fastPrint("Light sensor = ",lightValue);   //FASTPRINT 
-=======
-  fastPrint("Light sensor = ",lightValue);   //FASTPRINT 
->>>>>>> 9dd7e8dbf83fa69c508d84631b6116d92b4999e4
+
   if (lightValue > LIGHT_THRESHOLD) {
     digitalWrite(PHOTORESISTOR_LED, HIGH);
     lightTimer = millis();
@@ -117,15 +115,15 @@ void loop() {
   //DISTANCE READING
 
   distanceValue = calculateDistance();  // Calls a function for measure distance
+  
     /*Serial.print("Distanza: ");
     Serial.print(distanceValue);
     Serial.println(" cm");   */    //print distance
-<<<<<<< HEAD
-  // fastPrint("Distanza (cm) = ",distanceValue);
-=======
-    fastPrint("Distanza (cm) = ",distanceValue);
->>>>>>> 9dd7e8dbf83fa69c508d84631b6116d92b4999e4
+ 
+ 
+   // fastPrint("Distanza (cm) = ",distanceValue);
    // DEBUG  Serial.println(distanceValue);
+  
   if ( distanceValue > 0 && distanceValue < DISTANCE_THRESHOLD) {   //check for transits in working range              
     digitalWrite(DISTANCE_LED, HIGH);                                 //active led
     transitCounter++;                                                  //increments by 1 the counter of transits.
@@ -134,9 +132,10 @@ void loop() {
   else if (millis()- distanceTimer > LED_TIMER) {
     digitalWrite(DISTANCE_LED, LOW);
   }
-  
-  Serial.println(distanceValue);
-  //---------------------------------------
+  //------------------------------------------------------------------------------
+
+  Serial.println(distanceValue);  //for matlab readings
+  //------------------------------------------------------------------------------
 
   while (millis()-timeCounter < CLOCK){
         delayMicroseconds(10);   //LOOP REFRESH RATE

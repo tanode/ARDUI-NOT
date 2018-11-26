@@ -37,7 +37,7 @@
 
         %% Plot live data
         if i > 1
-            line(toc,accX(i));
+            line(toc,accX());
             drawnow;
         end
     end
