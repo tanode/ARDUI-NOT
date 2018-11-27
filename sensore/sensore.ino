@@ -1,9 +1,9 @@
 //---------------------------------------------------------------------
-// TODO FOR NEXT VERSIONS:
-// - METODO PER TARARE IL SENSORE DI LUMINOSITà (da fare nel setup) -V.0.4
-// - METODO PER CODIFICARE IN UNA SOLA FUNZIONE LE INFORMAZIONI IN USCITA SUL MONITOR SERIALE: void fastPrint(char string[], int digit)
+//  FOR NEXT IMPLEMENTATIONS:
+// - METODO SIMPLE MOVING AVERAGE -V.0.5 
+// - METODO PER CODIFICARE IN UNA SOLA FUNZIONE LE INFORMAZIONI IN USCITA SUL MONITOR SERIALE: void fastPrint(String, int)
 // 
-
+//
 //
 //
 //
@@ -11,15 +11,18 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // INIZIO FILE
 //
-//
-// NAME: 
-// VERSIONING: // -- v.0.4
-// -- 20/11/2018 V.0.3 - METODO PER LASCIARE ACCESI I LED tot SECONDI SENZA BLOCCARE L'ESECUZIONE DEL PROGRAMMA.
+// PROJECT NAME: 
+//----------------------
+// VERSIONING: What's new?
+// -- 28/11/2018 V.0.4 - Metodo per plottare i dati. Risolto bug unsigned int sui timer. 
+// -- 20/11/2018 V.0.3 - METODO PER LASCIARE ACCESI I LED tot SECONDI SENZA BLOCCARE L'ESECUZIONE DEL PROGRAMMA. (Conteneneva un bug)
 // -- 19/11/2018 V.0.2 - riorganizzazione e parametrizzazione del codice --> conseguente ottimizzazione. 
+//----------------------
 // CREDITS: 
 //
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------
-//                           LIBRARIES
+//                           LIBRARIES                                
 //---------------------------------------------------------------------
 
 #include <NewPing.h>
