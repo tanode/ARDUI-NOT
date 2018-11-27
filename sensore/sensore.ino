@@ -125,7 +125,6 @@ void loop() {
  
  
    // fastPrint("Distanza (cm) = ",distanceValue);
-   // DEBUG  Serial.println(distanceValue);
   
   if ( distanceValue > 0 && distanceValue < DISTANCE_THRESHOLD) {   //check for transits in working range              
     digitalWrite(DISTANCE_LED, HIGH);                                 //active led
@@ -141,7 +140,7 @@ void loop() {
   //------------------------------------------------------------------------------
 
   while (millis()-timeCounter < CLOCK){
-        delayMicroseconds(10);   //LOOP REFRESH RATE
+        delayMicroseconds(10);   //WAIT UNTIL CLOCK DURATION
   }
 //fine loop
  }
